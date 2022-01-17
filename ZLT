@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.10;
+pragma solidity 0.5.16;
 
 interface IBEP20 {
   /**
@@ -345,15 +345,15 @@ contract BEP20Token is Context, IBEP20, Ownable {
   mapping (address => mapping (address => uint256)) private _allowances;
 
   uint256 private _totalSupply;
-  uint8 private _decimals;
-  string private _symbol;
-  string private _name;
+  uint8 public _decimals;
+  string public _symbol;
+  string public _name;
 
   constructor() public {
-    _name = {{TOKEN_NAME}};
-    _symbol = {{TOKEN_SYMBOL}};
-    _decimals = {{DECIMALS}};
-    _totalSupply = {{TOTAL_SUPPLY}};
+    _name = "Zero Loss";
+    _symbol = "ZLT";
+    _decimals = 18;
+    _totalSupply = 533000000000000000000000000;
     _balances[msg.sender] = _totalSupply;
 
     emit Transfer(address(0), msg.sender, _totalSupply);
